@@ -35,3 +35,29 @@ public class sumpair {
 	}
 
 }
+
+
+
+
+//Optimal Aproach
+
+public class DSA18 {
+    public static void main(String[] args) {
+        int[] a={1,5,1,7};
+        int k=6;
+        int ans=0;
+        Map<Integer,Integer> h=new HashMap<Integer,Integer>();
+        for (int i=0; i<a.length;i++){
+            int b=k-a[i];
+            if(h.containsKey(b)){
+                ans+=h.get(b);
+            }
+            if(h.get(a[i])==null){
+                h.put(a[i],1);
+                continue;
+            }
+            h.put(a[i],h.get(a[i])+1);
+        }
+        System.out.println(ans);
+    }
+}
